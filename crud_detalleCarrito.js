@@ -2,7 +2,7 @@
 const connection = require('./conexion');
 
 // Crear detalle carrito
-function crearDetalleCarrito(idCarrito, idProduccto, cantidad) {
+function crearDetalleCarrito(idCarrito, idProducto, cantidad) {
     const sql = 'INSERT INTO detalle_carrito (id_carrito, id_producto, cantidad) VALUES (?, ?, ?)';
     connection.query(sql, [idCarrito, idProducto, cantidad], (error, results) => {
         if (error) {

@@ -2,9 +2,9 @@
 const connection = require('./conexion');
 
 // Crear historial
-function crearHistorial(idUsuario, fechaPedido, totalPedido) {
-    const sql = 'INSERT INTO historial_pedidos (id_usuario, fecha_pedido, total_pedido) VALUES (?, ?, ?)';
-    connection.query(sql, [idUsuario, fechaPedido, totalPedido], (error, results) => {
+function crearHistorial(idUsuario, idDetalle) {
+    const sql = 'INSERT INTO historial_pedidos (id_usuario, id_detalle) VALUES (?, ?)';
+    connection.query(sql, [idUsuario, idDetalle], (error, results) => {
         if (error) {
             console.error('Error al crear historial:', error.message);
             return;
@@ -27,9 +27,9 @@ function leerHistorial() {
  
 // Actualizar historial
 function actualizarHistorial(idHistorial, nuevosDatos) {
-    const sql = 'UPDATE historial_pedidos SET id_usuario = ?, fecha_pedido = ?, total_pedido = ? WHERE id_historial = ?';
+    const sql = 'UPDATE historial_pedidos SET id_usuario = ?, id_detalle = ? WHERE id_historial = ?';
     const values = [
-        nuevosDatos.idUsuario, nuevosDatos.fechaPedido, nuevosDatos.totalPedido, idHistorial
+        nuevosDatos.idUsuario, nuevosDatos.idDetalle, idHistorial
     ];
     connection.query(sql, values, (error, results) => {
         if (error) {
@@ -56,9 +56,8 @@ function eliminarHistorial(idHistorial) {
 
 // Crear historial
 // crearHistorial(
-//   1,               // idUsuario
-//   '2025-04-28',    // fechaPedido
-//   120.50           // totalPedido
+//   8,               // idUsuario
+//   1,               // idDetalle
 // );
 
 // Leer historial completo
@@ -66,9 +65,8 @@ function eliminarHistorial(idHistorial) {
 
 // Actualizar historial con ID 1
 // actualizarHistorial(1, {
-//   idUsuario: 1,
-//   fechaPedido: '2025-04-29',
-//   totalPedido: 150.00
+//   idUsuario: 8,
+//   idDetalle: 1,
 // });
 
 // Eliminar historial con ID 1

@@ -3,6 +3,11 @@ const connection = require('./conexion');
 
 // Crear metodo de pago
 function crearMetodoDePago(idUsuario, tipoPago, numeroTarjeta, fechaVencimiento) {
+    // Si no es tarjeta, los valores deben ser null
+    if (tipoPago !== 'Tarjeta') {
+        numeroTarjeta = null;
+        fechaVencimiento = null;
+    }
     const sql = 'INSERT INTO metodo_de_Pago (id_usuario, tipo_pago, numero_tarjeta, fecha_vencimiento) VALUES (?, ?, ?, ?)';
     connection.query(sql, [idUsuario, tipoPago, numeroTarjeta, fechaVencimiento], (error, results) => {
         if (error) {
@@ -11,7 +16,7 @@ function crearMetodoDePago(idUsuario, tipoPago, numeroTarjeta, fechaVencimiento)
         }
         console.log('Metodo de pago creado exitosamente:', results.insertId);
     });
-}
+} 
 
 // Leer metodos de pago 
 function leerMetodosDePago() {
@@ -27,6 +32,11 @@ function leerMetodosDePago() {
  
 // Actualizar metodo de pago
 function actualizarMetodoDePago(idPago, nuevosDatos) {
+    // Si no es tarjeta, los valores deben ser null
+    if (nuevosDatos.tipoPago !== 'Tarjeta') {
+        nuevosDatos.numeroTarjeta = null;
+        nuevosDatos.fechaVencimiento = null;
+    }
     const sql = 'UPDATE metodo_de_Pago SET id_usuario = ?, tipo_pago = ?, numero_tarjeta = ?, fecha_vencimiento = ? WHERE id_pago = ?';
     const values = [
         nuevosDatos.idUsuario, nuevosDatos.tipoPago, nuevosDatos.numeroTarjeta, nuevosDatos.fechaVencimiento, idPago

@@ -3,7 +3,7 @@ const connection = require('./conexion');
 
 // Crear rol
 function crearRoles(nombreRol) {
-    const sql = 'INSERT INTO roles (nombre_rol) VALUES (?,?)';
+    const sql = 'INSERT INTO roles (nombre_rol) VALUES (?)';
     connection.query(sql, [nombreRol], (error, results) => {
         if (error) {
             console.error('Error al crear rol:', error.message);
