@@ -25,20 +25,20 @@ const { crearUsuario, leerUsuario, actualizarUsuario, eliminarUsuario} = require
 // Leer todos los usuarios
 // leerUsuario();
 
-// Actualizar usuario con ID 9
-// actualizarUsuario(9, {
-//   nombres: ' Antonio',
-//   apellidos: ' Ruiz',
+// Actualizar usuario con ID 12
+// actualizarUsuario(12, {
+//   nombres: ' Andres',
+//   apellidos: 'Lozano',
 //   sexo: 'M',
 //   tipoDocumento: 'C.C.',
-//   numeroDocumento: '987654321',
-//   fechaNacimiento: '1990-02-02',
-//   correo: 'gomez@example.com',
-//   celular: '3109876543',
-//   direccion: 'Carrera 45 #67-89',
+//   numeroDocumento: '5111111111',
+//   fechaNacimiento: '2001-11-10',
+//   correo: 'andresafla42@gmail.com',
+//   celular: '3046676598',
+//   direccion: 'calle 108 cr4b. Ibague, Tolima',
 //   idRol: 7,
-//   hashContraseña: 'new_hashed_password',
-//   fechaCreación: '2025-04-26',
+//   hashContraseña: 'Aresito.123',
+//   fechaCreación: '2025-04-29 19:16:06',
 //   estado: 'Activo'
 // });
 
